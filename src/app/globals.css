@@ -1,0 +1,6 @@
+@import 'normalize.css';
+
+:root {
+  --black: hsl(0, 0%, 16%);
+  --light-gray: hsl(0, 0%, 92%);
+}
