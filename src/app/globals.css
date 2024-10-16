@@ -4,3 +4,7 @@
   --black: hsl(0, 0%, 16%);
   --light-gray: hsl(0, 0%, 92%);
 }
+
+body {
+  margin: 0;
+}

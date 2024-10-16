@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google'
+import { globalCss } from '@pigment-css/react';
+
+globalCss`
+  body {
+    margin: 0;
+  }
+`;
 
 const inter = Inter({
   subsets: ['latin'],

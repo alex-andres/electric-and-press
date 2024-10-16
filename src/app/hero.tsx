@@ -5,6 +5,7 @@ const HeroSection = styled('section')({
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
+  height: 'calc(100vh - 53px)',
 })
 
 const Heading = styled('h1')({
@@ -13,7 +14,7 @@ const Heading = styled('h1')({
   fontWeight: 900,
   lineHeight: 1,
   color: 'var(--black)',
-  textAlign: 'center'
+  textAlign: 'center',
 })
 
 export default function Hero() {
