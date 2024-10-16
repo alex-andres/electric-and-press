@@ -9,10 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^14.2.13",
     "@pigment-css/react": "^0.0.24",
     "framer-motion": "^11.11.1",
-    "next": "14.2.13",
+    "next": "^14.2.15",
     "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18"
