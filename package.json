@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "@pigment-css/react": "^0.0.24",
     "framer-motion": "^11.11.1",
+    "g": "^2.0.1",
     "next": "^14.2.15",
     "normalize.css": "^8.0.1",
+    "npm": "^10.9.0",
     "react": "^18",
     "react-dom": "^18"
   },

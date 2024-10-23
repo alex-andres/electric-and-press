@@ -1,7 +1,7 @@
 'use client'
-
+import { useEffect } from 'react';
 import { css, styled } from '@pigment-css/react';
-import { motion } from 'framer-motion';
+import { useAnimate } from 'framer-motion';
 
 const HeroSection = styled('section')({
   display: 'flex',
@@ -17,48 +17,62 @@ const heading = css({
   fontWeight: 900,
   lineHeight: 1,
   color: 'var(--black)',
+  columnGap: '10px',
+  justifyContent: 'center',
   textAlign: 'center',
+  display: 'flex',
+  flexWrap: 'wrap',
+  width: '65%',
 });
 
-const container = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0.5,
-      staggerChildren: 0.2,
-    }
-  }
+const headingChild = css({
+  opacity: 0,
+  filter: 'blur(10px)',
+})
+
+const styles = {
+  y: [100, 0],
+  opacity: [0, 1],
+  filter: ['blur(10px)', 'blur(0)'],
 }
 
-const item = {
-  hidden: { 
-    y: 100,
-    opacity: 0 },
-  show: { 
-    y: 0,
-    opacity: 1,
-  }
+const transition = {
+  type: 'spring',
+  stiffness: 500,
+  damping: 20,
+  duration: .1,
 }
 
 
 export default function Hero() {
+
+  const [scope, animate] = useAnimate();
+
+
+  useEffect(() => {
+    const animation = async () => {
+      await animate("#better", styles, transition)
+      await animate("#media", styles, transition)
+      await animate("#for", styles, transition)
+      await animate("#less", styles, transition)
+    }
+    
+    animation()
+  })
+
   return (
-    <HeroSection>
-      <motion.h1 
+    <HeroSection ref={scope}>
+      <h1 
         className={heading}
-        variants={container}
-        initial="hidden"
-        animate="show"
       >
-        <motion.div variants={item}>Better</motion.div>{' '}
-        <motion.div variants={item}>Photo</motion.div>{' '}
+        <div className={headingChild} id="better">Better</div>{' '}
+        <div className={headingChild} id="media">
+          <div id="video">video</div>{' '}
+        </div>
         <br /> 
-        <motion.div variants={item}>for</motion.div>{' '}
-        <motion.div variants={item}>less</motion.div>
-      </motion.h1>
+        <div className={headingChild} id="for">for</div>{' '}
+        <div className={headingChild} id="less">less</div>
+      </h1>
     </HeroSection>
   );
 }
